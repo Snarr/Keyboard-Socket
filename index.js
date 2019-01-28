@@ -1,6 +1,8 @@
 const net = require('net');
-const readline = require('readline');
 const fs = require('fs');
+
+const streamDeckDeckApi = require('stream-deck-api');
+var streamDeck = streamDeckApi.getStreamDeck();
 
 let config = {};
 
@@ -19,16 +21,10 @@ function connect() {
 	client.on('error', error => {
 		console.error;
 	})
-	
-	readline.emitKeypressEvents(process.stdin);
-	process.stdin.setRawMode(true);
-	process.stdin.on('keypress', (str, key) => {
-	  if (key.ctrl && key.name === 'c') {
-		process.exit();
-	  } else {
-		// console.log(key.name);
-		client.write(key.name);
-	  }
+
+	streamDeck.on('down', (buttonNumber) => {
+		client.write(buttonNumber);
 	});
+
 	console.log('Press any key...');
 }
