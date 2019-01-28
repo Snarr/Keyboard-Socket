@@ -1,28 +1,14 @@
 const net = require('net');
 const readline = require('readline');
+const fs = require('fs');
 
-let port = 5801
-let ip = '10.16.40.2'
-// let ip = '127.0.0.1'
+let config = {};
+
+fs.readFile('config.json', 'utf8', (err, data) => {
+	config = JSON.parse(data);
+})
 
 let client = new net.Socket();
-
-// net.createServer(function (socket) {
-
-// 	// Identify this client
-// 	socket.name = socket.remoteAddress + ":" + socket.remotePort 
-  
-// 	// Handle incoming messages from clients.
-// 	socket.on('data', function (data) {
-// 		console.log(data.toString('utf8'));
-// 	});
-  
-// 	// Remove the client from the list when it leaves
-// 	socket.on('end', function () {
-// 	  clients.splice(clients.indexOf(socket), 1);
-// 	});
-  
-// }).listen(5800);
 
 client.connect(port, ip, function() {
 	console.log('Connected');

@@ -1,0 +1,23 @@
+{
+  "name": "streamdeck-socket",
+  "version": "1.0.0",
+  "description": "Used to send StreamDeck keypresses to other devices via Socket",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Snarr/StreamDeck-Socket.git"
+  },
+  "author": "Jacob Snarr",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Snarr/StreamDeck-Socket/issues"
+  },
+  "homepage": "https://github.com/Snarr/StreamDeck-Socket#readme",
+  "dependencies": {
+    "net": "^1.0.2",
+    "readline": "^1.3.0"
+  }
+}
